@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "VaultNoteAi_backend": {
+      "main": "src/VaultNoteAi_backend/main.mo",
+      "type": "motoko"
+    },
+    "VaultNoteAi_frontend": {
+      "dependencies": [
+        "VaultNoteAi_backend"
+      ],
+      "source": [
+        "src/VaultNoteAi_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "VaultNoteAi_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
