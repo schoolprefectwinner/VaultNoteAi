@@ -123,6 +123,12 @@ export interface VoiceRecording {
   transcriptionProgress?: number;
   noiseLevel?: number;
   speechDetected?: boolean;
+  liveTranscription?: string;
+  finalTranscription?: string;
+  isListening?: boolean;
+  confidence?: number;
+  language?: string;
+  interimResults?: string[];
 }
 
 export interface AIResponse {

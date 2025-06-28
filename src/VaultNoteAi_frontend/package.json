@@ -5,29 +5,31 @@
   "type": "module",
   "scripts": {
     "setup": "npm i && dfx canister create VaultNoteAi_backend && dfx generate VaultNoteAi_backend && dfx deploy",
+    "dev": "vite --port 3000",
     "start": "vite --port 3000",
     "prebuild": "dfx generate",
     "build": "tsc && vite build",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\""
   },
- "dependencies": {
+  "dependencies": {
+    "@dfinity/agent": "^2.4.1",
+    "@dfinity/auth-client": "^2.4.1",
+    "@dfinity/candid": "^2.4.1",
+    "@dfinity/identity": "^2.4.1",
+    "@dfinity/principal": "^2.4.1",
+    "crypto-js": "^4.2.0",
+    "framer-motion": "^10.16.16",
+    "gsap": "^3.12.2",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "gsap": "^3.12.2",
-    "@dfinity/agent": "^0.20.2",
-    "@dfinity/auth-client": "^0.20.2",
-    "@dfinity/identity": "^0.20.2",
-    "@dfinity/principal": "^0.20.2",
-    "crypto-js": "^4.2.0",
-    "react-router-dom": "^6.20.1",
-    "framer-motion": "^10.16.16"
+    "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@types/crypto-js": "^4.2.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "@types/crypto-js": "^4.2.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.9.1",
