@@ -1,59 +1,121 @@
-# `VaultNoteAi`
+# VaultNoteAi
 
-Welcome to your new `VaultNoteAi` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+VaultNoteAi is an AI-powered, privacy-focused note-taking application built on the Internet Computer. It combines secure note storage, advanced search, smart templates, and AI-driven insights to help you organize, retrieve, and enhance your notes efficiently.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+---
 
-To learn more before you start working with `VaultNoteAi`, see the following documentation available online:
+## 🚀 Features
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+- **AI Insights:** Get summaries, suggestions, and content analysis for your notes using integrated AI services.
+- **Advanced Search:** Quickly find notes with semantic and keyword-based search.
+- **Smart Templates:** Use AI-generated templates to speed up note creation.
+- **Voice Notes:** Record and transcribe voice notes directly in the app.
+- **End-to-End Encryption:** All notes are encrypted for maximum privacy.
+- **Authentication:** Secure login and user management.
 
-If you want to start working on your project right away, you might want to try the following commands:
+---
 
-```bash
-cd VaultNoteAi/
-dfx help
-dfx canister --help
+## 🛠️ Tech Stack
+
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **Backend:** Motoko (Internet Computer Canisters)
+- **AI Integration:** Custom AI services (see `src/VaultNoteAi_frontend/services/aiService.ts`)
+- **Other:** PostCSS, ESLint
+
+---
+
+## 📁 Project Structure
+
+```
+VaultNoteAi/
+├── dfx.json
+├── package.json
+├── tsconfig.json
+├── src/
+│   ├── VaultNoteAi_backend/         # Motoko backend canister
+│   │   └── main.mo
+│   └── VaultNoteAi_frontend/        # React frontend
+│       ├── src/
+│       │   ├── components/          # UI components (Editor, Dashboard, etc.)
+│       │   ├── hooks/               # Custom React hooks
+│       │   ├── services/            # API and AI service logic
+│       │   ├── types/               # TypeScript types
+│       │   └── utils/               # Utility functions (encryption, etc.)
+│       ├── public/                  # Static assets
+│       └── ...                      # Config and setup files
+└── ...
 ```
 
-## Running the project locally
+---
 
-If you want to test your project locally, you can use the following commands:
+## ⚡ Getting Started
 
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [DFX SDK](https://internetcomputer.org/docs/current/developer-docs/setup/install)
+
+### 1. Clone the repository
 ```bash
-# Starts the replica, running in the background
-dfx start --background
+git clone <your-repo-url>
+cd VaultNoteAi
+```
 
-# Deploys your canisters to the replica and generates your candid interface
+### 2. Install dependencies
+```bash
+cd src/VaultNoteAi_frontend
+npm install
+```
+
+### 3. Start the Internet Computer replica and deploy canisters
+```bash
+cd ../..
+dfx start --background
 dfx deploy
 ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
+### 4. Start the frontend development server
 ```bash
-npm run generate
+cd src/VaultNoteAi_frontend
+npm run dev
 ```
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+- The frontend will be available at `http://localhost:8080`.
+- The backend canister runs at `http://localhost:4943?canisterId={asset_canister_id}`.
 
-If you are making frontend changes, you can start a development server with
+---
 
-```bash
-npm start
-```
+## 🧑‍💻 Development Scripts
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+- `npm run dev` – Start the frontend dev server
+- `npm run build` – Build the frontend for production
+- `npm run lint` – Lint the frontend code
+- `npm run generate` – Generate new candid interface after backend changes
 
-### Note on frontend environment variables
+---
+
+## 🔒 Security & Environment
+
+- All notes are encrypted client-side (see `src/VaultNoteAi_frontend/utils/encryption.ts`).
+- Authentication is managed via `src/VaultNoteAi_frontend/hooks/useAuth.ts` and `AuthProvider.tsx`.
+- For production, ensure you set the correct environment variables and network settings (see below).
+
+### Frontend Environment Variables
 
 If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
+- Set `DFX_NETWORK` to `ic` if you are using Webpack
+- Use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
   - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
 - Write your own `createActor` constructor
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open issues or pull requests for suggestions, bug fixes, or new features.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
