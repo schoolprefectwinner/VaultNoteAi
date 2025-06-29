@@ -55,8 +55,8 @@ VaultNoteAi is a cutting-edge decentralized application that combines AI-powered
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-org/vaultnoteai.git
-   cd vaultnoteai
+   git clone https://github.com/schoolprefectwinner/VaultNoteAi.git
+   cd VaultNoteAi
    ```
 
 2. **Install dependencies**
@@ -64,58 +64,61 @@ VaultNoteAi is a cutting-edge decentralized application that combines AI-powered
    npm install
    ```
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Start the local Internet Computer replica**
+3. **Start the local Internet Computer replica**
    ```bash
    dfx start --clean --background
    ```
 
-5. **Deploy the canisters**
+4. **Deploy the canisters**
    ```bash
    dfx deploy
    ```
 
-6. **Start the development server**
+5. **Start the development server**
    ```bash
-   npm run dev
+   cd src/VaultNoteAi_frontend
+   npm start
    ```
 
-7. **Open your browser**
-   Navigate to `http://localhost:5173`
+6. **Open your browser**
+   Navigate to `http://localhost:3000`
 
 ## 🏗 Project Structure
 
 ```
-vaultnoteai/
-├── src/
-│   ├── components/          # React components
-│   │   ├── AuthProvider.tsx # Authentication context
-│   │   ├── Dashboard.tsx    # Main dashboard
-│   │   ├── Header.tsx       # App header
-│   │   ├── LoginScreen.tsx  # Authentication screen
-│   │   ├── NoteCard.tsx     # Individual note card
-│   │   ├── NoteEditor.tsx   # Note editing interface
-│   │   └── VoiceRecorder.tsx # Voice recording component
-│   ├── hooks/               # Custom React hooks
-│   │   ├── useAuth.ts       # Authentication hook
-│   │   └── useVoiceRecording.ts # Voice recording hook
-│   ├── services/            # External service integrations
-│   │   └── aiService.ts     # AI transcription/summarization
-│   ├── utils/               # Utility functions
-│   │   └── encryption.ts    # Encryption helpers
-│   ├── types/               # TypeScript type definitions
-│   │   └── index.ts         # Core type definitions
-│   ├── canister/            # Smart contract code
-│   │   └── notes.mo         # Motoko smart contract
-│   └── App.tsx              # Main application component
-├── public/                  # Static assets
+VaultNoteAi/
 ├── dfx.json                 # Internet Computer configuration
-└── package.json             # Node.js dependencies
+├── package.json             # Node.js dependencies
+├── tsconfig.json           # TypeScript configuration
+├── src/
+│   ├── VaultNoteAi_backend/         # Motoko backend canister
+│   │   └── main.mo                  # Smart contract
+│   └── VaultNoteAi_frontend/        # React frontend
+│       ├── src/
+│       │   ├── components/          # UI components
+│       │   │   ├── AuthProvider.tsx # Authentication context
+│       │   │   ├── Dashboard.tsx    # Main dashboard
+│       │   │   ├── Header.tsx       # App header
+│       │   │   ├── LoginScreen.tsx  # Authentication screen
+│       │   │   ├── NoteCard.tsx     # Individual note card
+│       │   │   ├── NoteEditor.tsx   # Note editing interface
+│       │   │   ├── VoiceRecorder.tsx # Voice recording component
+│       │   │   ├── AIInsights.tsx   # AI analytics dashboard
+│       │   │   └── SmartTemplates.tsx # Template system
+│       │   ├── hooks/               # Custom React hooks
+│       │   │   ├── useAuth.ts       # Authentication hook
+│       │   │   └── useVoiceRecording.ts # Voice recording hook
+│       │   ├── services/            # External service integrations
+│       │   │   ├── aiService.ts     # AI transcription/summarization
+│       │   │   └── backendService.ts # ICP backend communication
+│       │   ├── utils/               # Utility functions
+│       │   │   └── encryption.ts    # Encryption helpers
+│       │   ├── types/               # TypeScript type definitions
+│       │   │   └── index.ts         # Core type definitions
+│       │   └── App.tsx              # Main application component
+│       ├── public/                  # Static assets
+│       └── package.json             # Frontend dependencies
+└── ...
 ```
 
 ## 🔒 Security Features
@@ -196,7 +199,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Documentation**: [docs.vaultnoteai.app](https://docs.vaultnoteai.app)
 - **Community**: [Discord](https://discord.gg/vaultnoteai)
-- **Issues**: [GitHub Issues](https://github.com/your-org/vaultnoteai/issues)
+- **Issues**: [GitHub Issues](https://github.com/schoolprefectwinner/VaultNoteAi/issues)
 
 ## 🗺 Roadmap
 
