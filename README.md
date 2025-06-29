@@ -16,7 +16,7 @@ VaultNoteAi is a cutting-edge decentralized application that combines AI-powered
 - **Decentralized Storage**: Notes stored on Internet Computer blockchain
 - **Internet Identity**: Passwordless authentication with biometric support
 - **Immutable Records**: Tamper-proof note history and versioning
-- **Zero-Knowledge**: Your data remains private and accessible only to you
+- **Zero-Knowledge**: Your data is private and accessible only to you
 
 ### User Experience
 - **Responsive Design**: Optimized for mobile, tablet, and desktop
