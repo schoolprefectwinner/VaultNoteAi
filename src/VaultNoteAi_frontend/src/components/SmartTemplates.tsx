@@ -142,7 +142,7 @@ export const SmartTemplates: React.FC<SmartTemplatesProps> = ({ onSelectTemplate
 
       // Get AI suggestions based on current content
       if (currentContent) {
-        const suggested = await AIService.suggestTemplates(currentContent);
+        const suggested = await AIService.suggestTemplates();
         setSuggestedTemplates(suggested);
       }
     } catch (error) {
@@ -154,7 +154,7 @@ export const SmartTemplates: React.FC<SmartTemplatesProps> = ({ onSelectTemplate
 
   const handleClose = () => {
     if (containerRef.current && overlayRef.current) {
-      const tl = gsap.timeline({ onComplete: onClose });
+      const tl = gsap.timeline({ onComplete: () => onClose() });
       tl.to(containerRef.current, { scale: 0.9, opacity: 0, y: 50, duration: 0.3 })
         .to(overlayRef.current, { opacity: 0, duration: 0.2 }, "-=0.1");
     }

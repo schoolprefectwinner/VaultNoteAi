@@ -56,7 +56,7 @@ export const AIInsights: React.FC<AIInsightsProps> = ({ notes, onClose }) => {
     try {
       const [insightsData, analyticsData] = await Promise.all([
         AIService.generateInsights(notes),
-        AIService.generateAnalytics(notes)
+        AIService.generateAnalytics()
       ]);
       
       setInsights(insightsData);
@@ -70,7 +70,7 @@ export const AIInsights: React.FC<AIInsightsProps> = ({ notes, onClose }) => {
 
   const handleClose = () => {
     if (containerRef.current && overlayRef.current) {
-      const tl = gsap.timeline({ onComplete: onClose });
+      const tl = gsap.timeline({ onComplete: () => onClose() });
       tl.to(containerRef.current, { scale: 0.9, opacity: 0, y: 50, duration: 0.3 })
         .to(overlayRef.current, { opacity: 0, duration: 0.2 }, "-=0.1");
     }
